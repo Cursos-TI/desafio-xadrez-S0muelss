@@ -1,30 +1,39 @@
 #include <stdio.h>
+//recursividade para movimentação da torre
+void moveTorre (int mt){ //declaração do bloco de código
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+  if (mt > 0){
+    printf("Direita\n"); // saída do movimento
+    moveTorre(mt - 1); // mecanismo para não gerar loop infinitos
+  }
+}
+
+// recursividade movimentação da rainha
+void moveRainha (int mr){//declaração do bloco de código
+  if (mr > 0){
+  printf("Esquerda\n"); //saída do movimento
+  moveRainha(mr-1); // mecanismo para não gerar loop infinitos
+  }
+}
+
+//recursividade para movimentação do bispo
+void moveBispo (int mb){//declaração do bloco de código
+  if (mb > 0){
+    printf("Cima/Direita\n");//saída do movimento
+    moveBispo(mb-1);// mecanismo para não gerar loop infinitos
+  }
+}
 
 int main() {
+  
 // movimentação da torre
-for(int mt = 0; mt <= 5 ; mt++){ //logica que simula a movimentação da torre
-    printf("Torre movimentada  a direita\n"); // saida indicando a direção da torre
-}
- //movimentação da rainha
- int movimentacaorainha = 0; // variável para gerar a simulação
+ moveTorre(5); // chamada para movimentação da torre com recursividade
 
-  while(movimentacaorainha < 8){ //simulação do movimento
-     printf("Rainha movimentada a esquerda\n"); // indicação do movimento
-     movimentacaorainha ++;//quebra de looping
-}
-// movimentação bispo
-int movimentacaoBispo = 0;
-
-do{
-  printf("bispo movimentado para cima/direita");//descrição do movimento
-  movimentacaoBispo++; // atualização para evitar o loopin infinito
-}while(movimentacaoBispo < 8);
+//movimentação da rainha
+moveRainha(8); // chamada para a movimentação da rainha
  
-
+// movimentação bispo
+moveBispo(8); //chamada para movimentação do bispo
 
 // movimentação do cavalo
 int movimentacaoCavalufinal = 1; // variável para movimento final do cavalo
